@@ -20,17 +20,12 @@
 }
 
 .login__logo {
-  width: 68px;
-  height: 68px;
+  width: 120px;
+  height: 120px;
   border-radius: 16px;
   background: #fbf3d6;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  font-size: 13px;
-  line-height: 1;
-  text-align: center;
-  color: #14233c;
+  padding: 6px;
+  object-fit: contain;
 }
 
 .login__nome {

@@ -8,7 +8,7 @@ import { AuthService } from '../../../core/services/auth.service';
   standalone: true,         //significa que esse componente é independente e não precisa ser declarado em um NgModule.
   imports: [ReactiveFormsModule, RouterLink],  //informa quais recursos externos o componente utilizará em seu HHTML.
   templateUrl: './login.component.html',  //informa onde o arquivo HTML responsável pela aparência da tela de login
-  styleUrl: './login.component.scss',
+  styleUrl: './login.component.css',
 })
 export class LoginComponent{
     private readonly fb= inject(FormBuilder);

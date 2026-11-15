@@ -1,0 +1,42 @@
+<main class="login">
+  <header class="login__marca">
+    <div class="login__logo" aria-hidden="true">
+      <span>SEA<br />Log</span>
+    </div>
+    <h1 class="login__nome">SEALog</h1>
+  </header>
+  <p class="login__slogan">Entregas que fluem, clientes informados.</p>
+
+  <section class="login__card">
+    <span class="login__eyebrow">Bem-vindo de volta</span>
+    <h2 class="login__titulo">Acesse sua operação</h2>
+
+    <form [formGroup]="form" (ngSubmit)="entrar()" novalidate>
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" formControlName="email" placeholder="voce@empresa.com" autocomplete="username" />
+        @if (form.controls.email.touched && form.controls.email.invalid) {
+          <small class="campo__erro">Informe um e-mail válido.</small>
+        }
+      </div>
+
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" formControlName="senha" placeholder="Sua senha" autocomplete="current-password" />
+        @if (form.controls.senha.touched && form.controls.senha.invalid) {
+          <small class="campo__erro">Informe sua senha.</small>
+        }
+      </div>
+
+      @if (erro()) {
+        <p class="login__erro" role="alert">{{ erro() }}</p>
+      }
+
+      <button type="submit" class="btn-primario">Entrar <span aria-hidden="true">→</span></button>
+    </form>
+
+    <a routerLink="/rastreio" class="login__rastreio">Acompanhar uma entrega ›</a>
+  </section>
+
+  
+</main>

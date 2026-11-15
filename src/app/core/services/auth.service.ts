@@ -1,0 +1,1 @@
+import { Injectable, computed, signal } from '@angular/core'; //injectable(permite que uma classe seja utilizada como servico e injetada em outras partes do sistema)

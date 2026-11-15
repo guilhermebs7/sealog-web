@@ -4,7 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { Perfil } from '../models/usuario.model';
 
 
-export const perfilGuard: CanActivateFn = () => {
+export const authGuard: CanActivateFn = () => {
     const auth = inject(AuthService);        //cria uma variável chamada auth e utiliza inject() para acessar o serviço de autenticação
     const router = inject(Router);           // acessa o serviço de navegaçaõ do Angular, será utlizado para redirecionar o usuario para outra pagina.
     return auth.autenticado() ? true : router.createUrlTree(['/login']);   //verifica se o usuario esta autenticado se estiver autenticado permite acessar a página se n , redireciona para a pagina de login
@@ -21,7 +21,7 @@ export const perfilGuard: CanActivateFn = (route) =>{
     if(!usuario) return router.createUrlTree(['/login']);
     return permitidos.includes(usuario.perfil)  //include verifica se determinado valor existe dentro de um array e o usuario.perfil = perfil do usuario
     ? true
-    : route.createUrlTree([auth.rotaInicial(usuario.perfil)]);   //se n tiver usuario autenticado , ele sera enviado para a pagina de login
+    : router.createUrlTree([auth.rotaInicial(usuario.perfil)]);   //se n tiver usuario autenticado , ele sera enviado para a pagina de login
 };
 
 export const visitanteGuard: CanActivateFn = () => {
